@@ -23,8 +23,6 @@ router.post('/:userid/todo', isloggedin,(req, res) => {
                 if (!err) {
                     user.todo.push(todo);
                     user.save();
-                    console.log(user);
-                    console.log(todo);
                     return res.redirect('back');
                 }
                 req.flash('error', err.message);

@@ -1,6 +1,6 @@
 var express               = require('express'),
     app                   = express(),
-    PORT                  = 8080 || process.env.PORT,
+    PORT                  = process.env.PORT || 8080,
     TODO                  = require('./Route/todolist'),
     mongoose              = require('mongoose'),
     bodyParser            = require('body-parser'),

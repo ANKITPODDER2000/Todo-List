@@ -28,7 +28,7 @@ var Todo = require('./module/tododetails');
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-mongoose.connect('mongodb://localhost/todolist', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://ap2:1234@cluster0-v5cee.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 

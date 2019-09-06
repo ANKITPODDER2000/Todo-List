@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style type="text/css">
+		body
+		{
+			margin: 0px;
+			padding: 0px;
+			font-family: sans-serif;
+			background: linear-gradient(to right, #22c1c3, #fdbb2d);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+
+        }
+        @media screen and (max-width:450px){
+            .box{
+                width: 320px;
+            }
+        }
+		html,body
+        {
+            height:100%;
+            width:100%
+        }
+		.box
+		{
+			position: absolute;
+			padding: 40px;
+			width: 400px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background: rgba(0,0,0,0.8);
+			box-sizing: border-box;
+			box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+			border-radius: 10px;
+		}
+		@media screen and (max-width:450px){
+            .box{
+                width: 350px;
+            }
+        }
+		.box h2
+		{
+			margin: 0 0 30px;
+			padding: 0px;
+			color: #fff;
+            text-align: center;
+            font-family: consolas;
+		}
+		.box .inputbox
+		{
+			position: relative;
+		}
+		.box .inputbox input
+		{
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #fff;
+			margin-bottom: 30px;
+			border:none;
+			border-bottom: 1px solid #fff;
+			outline: none;
+			background:transparent;
+		}
+		.box .inputbox label
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #fff;
+			pointer-events: none;
+			transition: 0.5s;
+		}
+		.box .inputbox input:focus~label,
+		.box .inputbox input:valid~label
+		{
+			top:-18px;
+			left: 0;
+			color: rgb(255, 0, 212);
+			font-size: 12px;
+		}
+		.box input[type="submit"]
+		{
+			background: transparent;
+			border:none;
+			outline: none;
+			color: #fff;
+			background: rgb(255, 0, 212);
+			padding: 10px 20px;
+		}	
+		/*=======================Loader=======================*/
+        .load
+        {
+            z-index: 99999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: #262626;
+        }
+        .loader
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 100px;
+            height: 100px;
+            animation: animate 1s linear infinite;
+        }
+        .loader span
+        {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #f00;
+            animation: rotate 1s linear infinite;
+        }
+        .loader span:nth-child(1)
+        {
+            top: 0;
+            left: 0;
+            background: #f79f1f;
+        }
+        .loader span:nth-child(2)
+        {
+            top: 0;
+            right: 0;
+            background: #12cbc4;
+        }
+        .loader span:nth-child(3)
+        {
+            bottom: 0;
+            left: 0;
+            background: #ed4c67;
+        }
+        .loader span:nth-child(4)
+        {
+            bottom: 0;
+            right: 0;
+            background: #a3cb38;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                width: 100px;
+                height: 100px;
+            }
+            10%
+            {
+                width: 100px;
+                height: 100px;
+            }
+            50%
+            {
+                width: 150px;
+                height: 150px;
+            }
+            90%
+            {
+                width: 100px;
+                height: 100px;
+            }
+            100%
+            {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @keyframes rotate
+        {
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            10%
+            {
+                transform: rotate(0deg);
+            }
+            60%
+            {
+                transform: rotate(90deg);
+            }
+            90%
+            {
+                transform: rotate(90deg);
+            }
+            100%
+            {
+                transform: rotate(90deg);
+            }
+        }
+	
+	</style>
+	<title></title>
+</head>
+<body>
+	<div class="load">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/...l/todo">HOME</a>
+			</div>
+	
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/signup">SIGN IN</a></li>
+					<li><a href="/login">LOG IN</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<% if(error && error.length>0){ %>
+		<div class="container" style="z-index: 9999">
+			<div class="alert alert-danger" role="alert"><%= error %></div>
+		</div>
+	<% } %>
+	<div class="box">
+		<h2>Sign Up</h2>
+		<form action="/signup" method=POST>
+			<div class="inputbox">
+				<input type="text" name="username"  required="">
+				<label>useername</label>
+			</div>
+			<div class="inputbox">
+				<input type="password" name="password" required="" >
+				<label>password</label>
+			</div><input type="submit" name="">
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+        window.addEventListener('load',function(){
+            document.querySelector('.load').style.display = "none";
+        })
+    </script>
+</body>
+</html>
